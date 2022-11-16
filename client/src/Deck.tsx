@@ -4,6 +4,7 @@ import { createCard } from './shared/createCard';
 import { Deck as TDeck } from './shared/createCard';
 import { deleteCard } from './shared/deleteCard';
 import { getDeck } from './shared/getDeck';
+import './Deck.css';
 
 const Deck = () => {
   const [cards, setCards] = useState<string[]>();
@@ -38,11 +39,11 @@ const Deck = () => {
   }, [id]);
 
   return (
-    <div className="App">
+    <div className="Deck">
       {/* {isLoading && <p>Loading...</p>}
       {isError && <p>An error has occured. Please try again later.</p>} */}
 
-      <ul className="decks">
+      <ul className="cards">
         {cards?.map((card, index: number) => (
           <div key={index}>
             <li>
