@@ -5,6 +5,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Deck from './Deck';
+import Header from './Header';
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
     <React.StrictMode>
-      <RouterProvider router={router}></RouterProvider>
+      <div className="page">
+        <Header />
+        <RouterProvider router={router}></RouterProvider>
+      </div>
     </React.StrictMode>
   </QueryClientProvider>
 );

@@ -39,32 +39,35 @@ const Deck = () => {
   }, [id]);
 
   return (
-    <div className="Deck">
-      {/* {isLoading && <p>Loading...</p>}
+    <div className="container">
+      <div className="Deck">
+        {/* {isLoading && <p>Loading...</p>}
       {isError && <p>An error has occured. Please try again later.</p>} */}
+        <h1>{deck?.title}</h1>
 
-      <ul className="cards">
-        {cards?.map((card, index: number) => (
-          <div key={index}>
-            <li>
-              <button onClick={(e) => handleDeleteCard(e, index)}>X</button>
-              {card}
-            </li>
-          </div>
-        ))}
-      </ul>
+        <ul className="cards">
+          {cards?.map((card, index: number) => (
+            <div key={index}>
+              <li>
+                <button onClick={(e) => handleDeleteCard(e, index)}>X</button>
+                {card}
+              </li>
+            </div>
+          ))}
+        </ul>
 
-      <form onSubmit={(e) => handleCreateCard(e, text)}>
-        <label htmlFor="card-text">Deck Title</label>
-        <input
-          type="text"
-          id="card-text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+        <form onSubmit={(e) => handleCreateCard(e, text)}>
+          <label htmlFor="card-text">Deck Title</label>
+          <input
+            type="text"
+            id="card-text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
 
-        <button>Create Card</button>
-      </form>
+          <button>Create Card</button>
+        </form>
+      </div>
     </div>
   );
 };

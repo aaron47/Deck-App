@@ -58,32 +58,37 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>An error has occured. Please try again later.</p>}
+    <div className="container">
+      <div className="App">
+        <h1>Your Decks</h1>
+        {isLoading && <p>Loading...</p>}
+        {isError && <p>An error has occured. Please try again later.</p>}
 
-      <ul className="decks">
-        {decks?.map((deck) => (
-          <div key={deck._id}>
-            <li>
-              <button onClick={(e) => handleDeleteDeck(e, deck._id)}>X</button>
-              <Link to={`/deck/${deck._id}`}>{deck.title}</Link>
-            </li>
-          </div>
-        ))}
-      </ul>
+        <ul className="decks">
+          {decks?.map((deck) => (
+            <div key={deck._id}>
+              <li>
+                <button onClick={(e) => handleDeleteDeck(e, deck._id)}>
+                  X
+                </button>
+                <Link to={`/deck/${deck._id}`}>{deck.title}</Link>
+              </li>
+            </div>
+          ))}
+        </ul>
 
-      <form onSubmit={handleCreateDeck}>
-        <label htmlFor="deck-title">Deck Title</label>
-        <input
-          type="text"
-          id="deck-title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <form onSubmit={handleCreateDeck}>
+          <label htmlFor="deck-title">Deck Title</label>
+          <input
+            type="text"
+            id="deck-title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <button>Create Deck</button>
-      </form>
+          <button>Create Deck</button>
+        </form>
+      </div>
     </div>
   );
 }
